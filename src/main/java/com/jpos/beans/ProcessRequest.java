@@ -33,8 +33,8 @@ public class ProcessRequest {
         InputStream inputStream = null;
        
         try {        	
-            GenericPackager packager = new GenericPackager("../src/main/resources/basic.xml");
-            inputStream = new FileInputStream("../src/main/resources/application.properties");
+            GenericPackager packager = new GenericPackager("/deployments/src/main/resources/basic.xml");
+            inputStream = new FileInputStream("/deployments/src/main/resources/application.properties");
             // load a properties file
             prop.load(inputStream);
             // get the property value 
