@@ -1,6 +1,6 @@
 package com.jpos.beans;
 
-import org.jpos.iso.FilteredChannel;
+//import org.jpos.iso.FilteredChannel;
 import org.jpos.iso.ISOChannel;
 import org.jpos.iso.ISOException;
 import org.jpos.iso.ISOField;
@@ -33,8 +33,8 @@ public class ProcessRequest {
         InputStream inputStream = null;
        
         try {        	
-            GenericPackager packager = new GenericPackager("/deployments/src/main/resources/basic.xml");
-            inputStream = new FileInputStream("/deployments/src/main/resources/application.properties");
+            GenericPackager packager = new GenericPackager("epfisobase.xml");
+            inputStream = new FileInputStream("application.properties");
             // load a properties file
             prop.load(inputStream);
             // get the property value 
@@ -46,13 +46,10 @@ public class ProcessRequest {
 
             channel.connect();
             ISOMsg m = new ISOMsg ();
-            m.setMTI (inMsg.MTI);
-            m.set (3, inMsg.field3);
-            m.set (34,inMsg.field34);
-            m.set (36,inMsg.field36);
-            m.set (41,inMsg.field41);
-            m.set (70,inMsg.field70);
-            m.set("71.2", inMsg.field71_2);
+            m.setMTI ("0200");
+            m.set (11, inMsg.refId);
+            m.set (7, inMsg.reqTime);
+            m.set("71.3", inMsg.idNo);
             channel.send(m);
             //Get incoming message
             ISOMsg incoming = channel.receive();
