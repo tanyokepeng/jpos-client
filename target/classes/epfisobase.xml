@@ -43,9 +43,9 @@
       class="org.jpos.iso.IFA_NUMERIC"/>
   <isofield
       id="7"
-      length="10"
+      length="23"
       name="Date and time, transmission"
-      class="org.jpos.iso.IFA_NUMERIC"/>
+      class="org.jpos.iso.IF_CHAR"/>
   <isofield
       id="8"
       length="8"
@@ -63,14 +63,14 @@
       class="org.jpos.iso.IFA_NUMERIC"/>
   <isofield
       id="11"
-      length="6"
+      length="16"
       name="Systems trace audit number"
-      class="org.jpos.iso.IFA_NUMERIC"/>
+      class="org.jpos.iso.IF_CHAR"/>
   <isofield
       id="12"
-      length="12"
+      length="23"
       name="Date and time, Local transaction"
-      class="org.jpos.iso.IFA_NUMERIC"/>
+      class="org.jpos.iso.IF_CHAR"/>
   <isofield
       id="13"
       length="4"
@@ -363,10 +363,10 @@
       class="org.jpos.iso.IFA_NUMERIC"/>
   <isofieldpackager
      	id="71"
-      	length="118"
+      	length="126"
       	name="Member Profile"
       	emitBitmap="false"
-	  	class="org.jpos.iso.IFA_LLNUM"
+	  	class="org.jpos.iso.IFA_LLLNUM"
 	  	packager="org.jpos.iso.packager.GenericSubFieldPackager">
 	 	
 	  <isofield
@@ -376,26 +376,31 @@
 			class="org.jpos.iso.IF_CHAR" />
 	  <isofield
 			id="2"
+			length="8"
+			name="EPF Number"
+			class="org.jpos.iso.IF_CHAR"  />
+	  <isofield
+			id="3"
 			length="15"
 			name="ID Number"
 			class="org.jpos.iso.IF_CHAR"  />
 	  <isofield
-	  		id="3"
+	  		id="4"
 	  		length="15"
 	  		name="Passport Number"
 	  		class="org.jpos.iso.IF_CHAR" />
 	  <isofield
-			id="4"
+			id="5"
 			length="8"
 			name="Membership Date"
 			class="org.jpos.iso.IFA_NUMERIC"  />
 	  <isofield
-	  		id="5"
+	  		id="6"
 	  		length="8"
 	  		name="iAkaun Membership Date"
 	  		class="org.jpos.iso.IFA_NUMERIC" />
 	  <isofield
-			id="6"
+			id="7"
 			length="8"
 			name="iAkaun Status"
 			class="org.jpos.iso.IF_CHAR"  />
@@ -675,7 +680,7 @@
       	length="36"
       	name="Account Balance"
       	emitBitmap="false"
-	  	class="org.jpos.iso.IFA_LLNUM"
+	  	class="org.jpos.iso.IFA_LLLNUM"
 	  	packager="org.jpos.iso.packager.GenericSubFieldPackager">
 	 	
 	  <isofield
@@ -687,7 +692,7 @@
 			id="2"
 			length="12"
 			name="Account1 Balance"
-			class="org.jpos.iso.IFA_NUMERIC"  />
+			class="org.jpos.iso.IFA_NUMERIC" />
 	  <isofield
 	  		id="3"
 	  		length="12"
