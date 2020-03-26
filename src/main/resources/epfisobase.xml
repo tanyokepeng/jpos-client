@@ -43,7 +43,7 @@
       class="org.jpos.iso.IFA_NUMERIC"/>
   <isofield
       id="7"
-      length="23"
+      length="29"
       name="Date and time, transmission"
       class="org.jpos.iso.IF_CHAR"/>
   <isofield
@@ -68,7 +68,7 @@
       class="org.jpos.iso.IF_CHAR"/>
   <isofield
       id="12"
-      length="23"
+      length="29"
       name="Date and time, Local transaction"
       class="org.jpos.iso.IF_CHAR"/>
   <isofield
@@ -363,10 +363,10 @@
       class="org.jpos.iso.IFA_NUMERIC"/>
   <isofieldpackager
      	id="71"
-      	length="126"
+      	length="999"
       	name="Member Profile"
       	emitBitmap="false"
-	  	class="org.jpos.iso.IFA_LLLNUM"
+	  	class="org.jpos.iso.IFA_LLLCHAR"
 	  	packager="org.jpos.iso.packager.GenericSubFieldPackager">
 	 	
 	  <isofield
@@ -677,10 +677,10 @@
       class="org.jpos.iso.IFA_LLLCHAR"/>
   <isofieldpackager
      	id="126"
-      	length="36"
+      	length="99"
       	name="Account Balance"
       	emitBitmap="false"
-	  	class="org.jpos.iso.IFA_LLLNUM"
+	  	class="org.jpos.iso.IFA_LLNUM"
 	  	packager="org.jpos.iso.packager.GenericSubFieldPackager">
 	 	
 	  <isofield
