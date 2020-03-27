@@ -22,10 +22,10 @@ public class JposClientController {
 	@RequestMapping(method = RequestMethod.POST, value="/jpos/client")
 
 	@ResponseBody	  
-	public OrderedJSONObject PostMessage (@RequestBody RequestMessage msg) {
+	public JSONObject PostMessage (@RequestBody RequestMessage msg) {
 
 		ProcessRequest testClient = new ProcessRequest();					
-		OrderedJSONObject outMsg = testClient.postMessage(msg);
+		JSONObject outMsg = testClient.postMessage(msg);
 							
 		return outMsg;
 

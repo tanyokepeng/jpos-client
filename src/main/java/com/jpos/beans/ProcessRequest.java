@@ -23,10 +23,10 @@ import com.ibm.json.java.OrderedJSONObject;
 
 public class ProcessRequest {
 
-	public OrderedJSONObject postMessage (RequestMessage inMsg) {
+	public JSONObject postMessage (RequestMessage inMsg) {
 
 		//ResponseMessage response = new ResponseMessage();
-		OrderedJSONObject response = new OrderedJSONObject();
+		JSONObject response = new JSONObject();
 
 		Logger logger = new Logger();
         logger.addListener(new SimpleLogListener(System.out));
