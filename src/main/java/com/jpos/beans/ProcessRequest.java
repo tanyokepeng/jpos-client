@@ -12,19 +12,21 @@ import org.jpos.util.Logger;
 import org.jpos.util.SimpleLogListener;
 import java.io.IOException;
 import com.jpos.beans.RequestMessage;
-import com.jpos.beans.ResponseMessage;
+//import com.jpos.beans.ResponseMessage;
 import org.jpos.iso.packager.GenericPackager;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.HashMap;
-
+//import java.util.HashMap;
+import org.json.simple.JSONObject;
+import com.ibm.json.java.OrderedJSONObject;
 
 public class ProcessRequest {
 
-	public ResponseMessage postMessage (RequestMessage inMsg) {
+	public OrderedJSONObject postMessage (RequestMessage inMsg) {
 
-		ResponseMessage response = new ResponseMessage();
+		//ResponseMessage response = new ResponseMessage();
+		OrderedJSONObject response = new OrderedJSONObject();
 
 		Logger logger = new Logger();
         logger.addListener(new SimpleLogListener(System.out));
@@ -57,9 +59,10 @@ public class ProcessRequest {
 
             /* set MTI and header */
             //response.setMTI(incoming.getMTI());
-            HashMap field = new HashMap<String,String>();
-            field.put("MTI",incoming.getMTI());
-            response.getFields().add(field);
+            //HashMap field = new HashMap<String,String>();
+            //field.put("MTI",incoming.getMTI());
+            //response.getFields().add(field);
+            response.put("MTI",incoming.getMTI());
 /*            if (incoming.getHeader() != null) {
                 response.setISOHeader(new String(incoming.getHeader()));
             }*/
@@ -70,19 +73,21 @@ public class ProcessRequest {
                 	boolean fieldOnly = incoming.getComponent(i) instanceof ISOField;
                 	if (fieldOnly) {
                 		System.out.printf("Field (%s) = %s%n", i, incoming.getString(i));
-	                	//response.getFields().put(i + "", incoming.getString(i));
-	                	field = new HashMap<String,String>();
-	                	field.put(i + "", incoming.getString(i));
-	                	response.getFields().add(field);
+	                	//response.getFields().put("field"+i, incoming.getString(i));
+	                	//field = new HashMap<String,String>();
+	                	//field.put(i + "", incoming.getString(i));
+	                	//response.getFields().add(field);
+                		response.put("field"+i, incoming.getString(i));
 	                } else {
 	            		ISOMsg subfield = (ISOMsg)incoming.getComponent(i);
 	                    for (int j = 1; j <= subfield.getMaxField(); j++) {
 	                       if (subfield.hasField(j)) {
 	                    	   System.out.println("Parent field: (" +i + ") subField: (" +j + ") value:" +subfield.getString(j));
-	                    	   //response.getFields().put(i+"."+j, subfield.getString(j));
-	                    	   field = new HashMap<String,String>();
-	                    	   field.put(i+"."+j, subfield.getString(j));
-	                    	   response.getFields().add(field);
+	                    	   //response.getFields().put("field"+i+"_"+j, subfield.getString(j));
+	                    	   //field = new HashMap<String,String>();
+	                    	   //field.put(i+"."+j, subfield.getString(j));
+	                    	   //response.getFields().add(field);
+	                    	   response.put("field"+i+"_"+j, subfield.getString(j));
 	                       }
 	                    }
 	                }

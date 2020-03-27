@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jpos.beans.*;
-//import org.json.simple.JSONObject;
-//import com.ibm.json.java.OrderedJSONObject;
+import org.json.simple.JSONObject;
+import com.ibm.json.java.OrderedJSONObject;
 //import java.util.HashMap;
 //import java.util.Map;
 //import java.util.Stack;
@@ -22,10 +22,10 @@ public class JposClientController {
 	@RequestMapping(method = RequestMethod.POST, value="/jpos/client")
 
 	@ResponseBody	  
-	public ResponseMessage PostMessage (@RequestBody RequestMessage msg) {
+	public OrderedJSONObject PostMessage (@RequestBody RequestMessage msg) {
 
 		ProcessRequest testClient = new ProcessRequest();					
-		ResponseMessage outMsg = testClient.postMessage(msg);
+		OrderedJSONObject outMsg = testClient.postMessage(msg);
 							
 		return outMsg;
 
