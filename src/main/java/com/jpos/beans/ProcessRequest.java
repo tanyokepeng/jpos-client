@@ -57,6 +57,7 @@ public class ProcessRequest {
             ISOMsg incoming = channel.receive();
             System.out.println(incoming.pack());
 
+            response.put("version","v1");
             /* set MTI and header */
             //response.setMTI(incoming.getMTI());
             //HashMap field = new HashMap<String,String>();
